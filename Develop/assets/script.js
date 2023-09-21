@@ -4,20 +4,24 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function generatePassword () {
 
-  alert("Please add lowercase, uppercase, numeric, and special characters");
+  alert("Please add lower case, upper case, numeric, and special characters");
 
-  var length = parseInt(prompt("Enter password length from 8 to 128 characters"));
+  var inputPasswordLength = parseInt(prompt("Please enter a number from 8 to 128 characters to create the length"));
 
-  if (length < 8 || length > 128) {
+  if (inputPasswordLength < 8 || inputPasswordLength > 128) {
     alert("Invalid Length");
-    return; 
-  } 
-
+     return; 
+  }
   
   var inputLowerCase = confirm("Would you like to include lower case characters?");
   var inputUpperCase = confirm("Would you like to include upper case characters?");
   var inputNum = confirm("Would you like to include numeric characters?");
   var inputSpecialCharacters = confirm("Would you like to include special characters?");
+
+  if (inputLowerCase || inputUpperCase || inputNum || inputSpecialCharacters) {
+    alert("Thank you for selecting at least on character type.");
+    return;
+  }
 
   if (!inputLowerCase && !inputUpperCase && !inputNum && !inputSpecialCharacters) {
     alert("Please select at least one character type for your password");
@@ -31,7 +35,12 @@ function generatePassword () {
 
   var allCharacters = lowerCase + upperCase + num + specialCharacters;
 
+  for (var i = 0; i < inputPassword.length; i++) {
+    var randomIndex = Math.floor(Math.random() * allCharacters.length);
+    generatePassword += allCharacters[index];
+  }
 
+  console.log(generatePassword);
   
 }
 

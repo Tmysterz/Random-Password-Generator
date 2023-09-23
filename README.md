@@ -4,8 +4,8 @@ In this program a random password generator was created. as a programer we were 
 
 * Screenshot 
 
-[Screenshot](/Develop/images/randomPasswordGenerator.PNG)
+![Screenshot](/Develop/images/randomPasswordGenerator.PNG)
 
 * Deployed Application 
 
-[Random-Password-Generator]()
+[Random-Password-Generator](https://tmysterz.github.io/Random-Password-Generator/)

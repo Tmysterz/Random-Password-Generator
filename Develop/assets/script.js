@@ -18,39 +18,70 @@ function generatePassword () {
   var inputNum = confirm("Would you like to include numeric characters?");
   var inputSpecialCharacters = confirm("Would you like to include special characters?");
 
+  console.log(inputLowerCase, inputUpperCase, inputNum, inputSpecialCharacters);
+
   if (inputLowerCase || inputUpperCase || inputNum || inputSpecialCharacters) {
-    alert("Thank you for selecting at least on character type.");
-    return;
+    alert("Thank you for selecting at least one character type.");
+    
   }
 
   if (!inputLowerCase && !inputUpperCase && !inputNum && !inputSpecialCharacters) {
     alert("Please select at least one character type for your password");
-    return;
+    
   }
   
-  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var num = "0123456789";
-  var specialCharacters = "!@#$%^&*()_-+=<>?/\|}{;:";
+  var lowerCaseCharacters = 'abcdefghijklmnopqrstuvwxyz';
+  var upperCaseCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var num = '1234567890';
+  var specialCharacters = '!@#$%^&*()_-+=';
 
-  var allCharacters = lowerCase + upperCase + num + specialCharacters;
+  var allCharacters = '';
 
-  for (var i = 0; i < inputPassword.length; i++) {
+  console.log(allCharacters);
+
+  if (inputLowerCase) {
+    allCharacters += lowerCaseCharacters;
+  }
+
+  if (inputUpperCase) {
+    allCharacters += upperCaseCharacters;
+  }
+
+  if (inputNum) {
+    allCharacters += num;
+  }
+
+  if(specialCharacters) {
+    allCharacters += specialCharacters;
+  }
+
+  console.log(allCharacters);
+
+
+  var password = '';
+
+  console.log(allCharacters);
+
+  for (var i = 0; i < inputPasswordLength; i++) {
     var randomIndex = Math.floor(Math.random() * allCharacters.length);
-    generatePassword += allCharacters[index];
+    password += allCharacters[randomIndex];
   }
 
-  console.log(generatePassword);
-  
+  console.log(password);
+
+  return password;
 }
 
 function writePassword() {
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

@@ -4,7 +4,7 @@ In this program a random password generator was created. as a programer we were 
 
 * Screenshot 
 
-![Screenshot](/Develop/images/randomPasswordGenerator.PNG)
+![Screenshot](/Develop/assets/images/randomPasswordGenerator.PNG)
 
 * Deployed Application 
 
